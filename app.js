@@ -1,7 +1,7 @@
 const express = require('express')
 const mysql = require('mysql');
 const app = express()
-const path = require('path')
+import path from 'node:path';
 require('dotenv').config();
 
 // Import Middleware
