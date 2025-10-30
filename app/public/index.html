@@ -1,188 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Netflix — Watch Anywhere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ID Networkers — Build, Connect, Grow</title>
   <link rel="stylesheet" href="stylesheet/style.css" />
   <style>
-    :root {
-      --bg: #141414;
-      --muted: #b3b3b3;
-      --accent: #e50914;
-      --glass: rgba(255,255,255,0.06);
+    :root{
+      --bg:#0f1720;
+      --card:#0b1220;
+      --muted:#9aa6b2;
+      --accent:#00a3ff;
+      --glass: rgba(255,255,255,0.03);
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Helvetica Neue", Roboto, Arial;
-      background: linear-gradient(180deg,var(--bg) 0%, #0f0f0f 100%);
-      color: #fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,var(--bg),#05101a);color:#e6f0f6;-webkit-font-smoothing:antialiased}
+    header.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 36px;position:sticky;top:0;background:linear-gradient(180deg, rgba(5,16,26,0.9), rgba(5,16,26,0.6));backdrop-filter:blur(6px);z-index:50;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .brand{display:flex;align-items:center;gap:16px}
+    .logo{height:44px;display:block}
+    nav.main-nav{display:flex;gap:16px;align-items:center}
+    nav.main-nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px;padding:8px}
+    nav.main-nav a:hover{color:#fff}
+    .controls{display:flex;gap:12px;align-items:center}
+    .btn-primary{background:var(--accent);color:#042028;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
 
-    /* Top bar */
-    header.topbar {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:18px 36px;
-      position:sticky;
-      top:0;
-      background:linear-gradient(180deg, rgba(20,20,20,0.85), rgba(20,20,20,0.65));
-      backdrop-filter: blur(6px);
-      z-index:40;
-    }
-    .brand {
-      display:flex;
-      align-items:center;
-      gap:18px;
-    }
-    .logo { height:44px; display:block; }
+    main{padding:48px 6vw 80px}
+    .hero{display:flex;gap:36px;align-items:center;max-width:1200px;margin:0 auto}
+    .hero-content{max-width:680px}
+    .eyebrow{color:var(--accent);font-weight:800;margin-bottom:8px}
+    h1{font-size:48px;margin:0 0 16px 0;line-height:1.04;color:#fff}
+    p.lead{color:var(--muted);font-size:18px;margin:0 0 20px 0}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .showcase{flex:1;min-width:280px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border:1px solid var(--glass)}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:36px}
+    .card{background:var(--card);padding:18px;border-radius:10px;border:1px solid var(--glass)}
+    .card h3{margin:0 0 8px 0;color:#fff}
+    .card p{margin:0;color:var(--muted)}
+    footer{padding:28px 6vw;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);font-size:14px;text-align:center}
 
-    nav.main-nav {
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
-    nav.main-nav a {
-      color:var(--muted);
-      text-decoration:none;
-      font-weight:600;
-      font-size:15px;
-      padding:8px;
-    }
-    nav.main-nav a:hover { color:#fff; }
-
-    .controls { display:flex; gap:12px; align-items:center; }
-
-    .btn-signin {
-      background:transparent;
-      color:#fff;
-      border:1px solid rgba(255,255,255,0.12);
-      padding:8px 14px;
-      border-radius:4px;
-      text-decoration:none;
-      font-weight:700;
-    }
-
-    /* Hero */
-    .hero {
-      padding:84px 6vw 64px 6vw;
-      max-width:1200px;
-    }
-    .hero-inner { max-width:760px; }
-    .eyebrow { color:var(--muted); font-weight:700; margin-bottom:12px; }
-    h1 { font-size:56px; line-height:1.02; margin:0 0 18px 0; letter-spacing:-1px; color:#fff; }
-    p.lead { margin:0 0 22px 0; color:var(--muted); font-size:18px; }
-
-    .cta-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:6px; }
-    .cta-primary {
-      background:var(--accent);
-      color:#fff;
-      padding:14px 22px;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:800;
-    }
-    .cta-secondary {
-      background:transparent;
-      color:#fff;
-      padding:12px 18px;
-      border-radius:6px;
-      border:1px solid rgba(255,255,255,0.12);
-      text-decoration:none;
-      font-weight:700;
-    }
-
-    /* Feature row */
-    .features {
-      display:grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
-      margin-top:48px;
-      max-width:1200px;
-      padding:0 6vw 60px 6vw;
-    }
-    .feature {
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      border:1px solid rgba(255,255,255,0.04);
-      padding:18px;
-      border-radius:8px;
-    }
-    .feature h3 { margin:0 0 8px 0; font-size:18px; }
-    .feature p { margin:0; color:var(--muted); font-size:14px; }
-
-    footer {
-      padding:28px 6vw;
-      color:var(--muted);
-      border-top:1px solid rgba(255,255,255,0.03);
-      font-size:14px;
-    }
-
-    @media (max-width:800px) {
-      h1 { font-size:36px; }
-      header.topbar { padding:12px 18px; }
-      .logo { height:36px; }
-      nav.main-nav { display:none; }
+    @media (max-width:900px){
+      .hero{flex-direction:column;text-align:left;padding-top:24px}
+      h1{font-size:34px}
+      .logo{height:36px}
+      nav.main-nav{display:none}
     }
   </style>
 </head>
 <body>
   <header class="topbar" role="navigation" aria-label="Top Bar">
     <div class="brand">
-      <img class="logo" src="./images/idn-logo.png" alt="idn-logo" />
+      <img class="logo" src="./images/idn-logo.png" alt="ID Networkers logo" />
       <nav class="main-nav" aria-label="Main Navigation">
-        <a href="#">Home</a>
-        <a href="#">TV Shows</a>
-        <a href="#">Movies</a>
-        <a href="#">New & Popular</a>
-        <a href="#">My List</a>
+        <a href="#">Tentang</a>
+        <a href="#">Kegiatan</a>
+        <a href="#">Sumber</a>
+        <a href="#">Komunitas</a>
+        <a href="#">Blog</a>
       </nav>
     </div>
 
     <div class="controls">
-      <a class="btn-signin" href="#">Sign In</a>
+      <a class="btn-ghost" href="#">Masuk</a>
+      <a class="btn-primary" href="#">Gabung Komunitas</a>
     </div>
   </header>
 
   <main>
-    <section class="hero" role="banner">
-      <div class="hero-inner">
-        <div class="eyebrow">Unlimited movies, TV shows, and more.</div>
-        <h1>Watch anywhere. Cancel anytime.</h1>
-        <p class="lead">Stream thousands of titles on your favorite devices. Create profiles for kids, download for offline viewing, and get recommendations just for you.</p>
+    <section class="hero" role="banner" aria-label="Hero">
+      <div class="hero-content">
+        <div class="eyebrow">ID Networkers</div>
+        <h1>Bangun keterampilan, bangun relasi, dorong karier Anda bersama komunitas</h1>
+        <p class="lead">Komunitas developer, network engineer, dan tech enthusiast yang berbagi pengetahuan lewat workshop, meetups, mentorship, dan proyek open-source.</p>
         <div class="cta-row">
-          <a class="cta-primary" href="#">Join Free for a Month</a>
-          <a class="cta-secondary" href="#">Browse Plans</a>
+          <a class="btn-primary" href="#">Gabung Sekarang</a>
+          <a class="btn-ghost" href="#">Lihat Kegiatan</a>
+        </div>
+
+        <div class="features" aria-label="Highlights">
+          <div class="card">
+            <h3>Meetups & Workshops</h3>
+            <p>Acara reguler menghadirkan pembicara praktisi, hands-on lab, dan sesi Q&A.</p>
+          </div>
+          <div class="card">
+            <h3>Mentorship</h3>
+            <p>Program bimbingan untuk membantu pengembangan karier dan skill teknis.</p>
+          </div>
+          <div class="card">
+            <h3>Open Source Projects</h3>
+            <p>Bergabung kontribusi ke proyek komunitas untuk pengalaman nyata.</p>
+          </div>
+          <div class="card">
+            <h3>Job & Collaboration Board</h3>
+            <p>Info peluang kerja, kolaborasi proyek, dan rekomendasi dari anggota.</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section class="features" aria-label="Highlights">
-      <div class="feature">
-        <h3>Watch on any device</h3>
-        <p>Available on smart TVs, mobile, tablet, and web — start watching instantly.</p>
-      </div>
-      <div class="feature">
-        <h3>Download & Go</h3>
-        <p>Save series and movies to watch offline wherever you are.</p>
-      </div>
-      <div class="feature">
-        <h3>Personalized Profiles</h3>
-        <p>Profiles and recommendations tailored to each member of your household.</p>
-      </div>
-      <div class="feature">
-        <h3>New Releases Weekly</h3>
-        <p>Fresh films and series added every week so there's always something new to watch.</p>
-      </div>
+      <aside class="showcase" aria-hidden="false">
+        <h3 style="margin-top:0;color:#fff">Upcoming: Network Automation Workshop</h3>
+        <p style="color:var(--muted);margin-bottom:12px">Tanggal: 15 November 2025 • Online & Offline — Daftar tempat terbatas.</p>
+        <a class="btn-primary" href="#" style="display:inline-block;margin-bottom:12px">Daftar Sekarang</a>
+        <div style="height:12px"></div>
+        <div style="color:var(--muted);font-size:13px">Follow kami di:</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <a href="#" style="color:var(--muted);text-decoration:none">Twitter</a>
+          <a href="#" style="color:var(--muted);text-decoration:none">LinkedIn</a>
+          <a href="#" style="color:var(--muted);text-decoration:none">GitHub</a>
+        </div>
+      </aside>
     </section>
   </main>
 
   <footer>
-    <div>© 2025 — Demo Netflix Landing. All rights reserved.</div>
+    <div>© 2025 ID Networkers — Build, Connect, Grow. All rights reserved.</div>
+    <div style="margin-top:8px;color:var(--muted)">Kontak: hello@idnetworkers.id</div>
   </footer>
 </body>
 </html>
