@@ -1,15 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training DevOps</title>
-    <link rel="stylesheet" href="stylesheet/style.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Watch Anywhere — Demo Landing</title>
+  <link rel="stylesheet" href="stylesheet/style.css" />
+  <style>
+    :root{--bg:#141414;--muted:#b3b3b3;--accent:#e50914}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#fff;-webkit-font-smoothing:antialiased}
+    /* Top bar */
+    header.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 36px;position:sticky;top:0;background:linear-gradient(180deg,rgba(20,20,20,0.95),rgba(20,20,20,0.8));backdrop-filter:blur(6px);z-index:40}
+    .brand{display:flex;align-items:center;gap:18px}
+    .logo{height:44px;display:block}
+    nav.main-nav{display:flex;gap:16px;align-items:center}
+    nav.main-nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px;padding:8px}
+    nav.main-nav a:hover{color:#fff}
+    .controls{display:flex;gap:12px;align-items:center}
+    .btn-signin{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.08);padding:8px 14px;border-radius:4px;text-decoration:none;font-weight:700}
+    /* Hero */
+    main{padding:72px 6vw 56px}
+    .hero{max-width:1100px;margin:0 auto;display:flex;gap:32px;align-items:flex-start}
+    .hero-content{max-width:680px}
+    .eyebrow{color:var(--muted);font-weight:700;margin-bottom:10px}
+    h1{font-size:56px;line-height:1.02;margin:0 0 16px 0;color:#fff;letter-spacing:-1px}
+    p.lead{color:var(--muted);font-size:18px;margin:0 0 20px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .cta-primary{background:var(--accent);color:#fff;padding:14px 22px;border-radius:6px;text-decoration:none;font-weight:800}
+    .cta-secondary{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:12px 18px;border-radius:6px;text-decoration:none;font-weight:700}
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:40px}
+    .feature{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+    .feature h3{margin:0 0 8px 0;font-size:18px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+    footer{padding:28px 6vw;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03);font-size:14px;text-align:center}
+    @media(max-width:800px){h1{font-size:36px}nav.main-nav{display:none}.logo{height:36px}.hero{flex-direction:column}}
+  </style>
 </head>
 <body>
-    <img class="logo" src="./images/idn-logo.png" alt="idn-logo">
-     <h1>Belajar Devops</h1>
-     <h1>Update Triggers Devops</h1>
+  <header class="topbar" role="navigation" aria-label="Top Bar">
+    <div class="brand">
+      <!-- persistent logo image -->
+      <img class="logo" src="./images/idn-logo.png" alt="IDN Logo" />
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="#">Home</a>
+        <a href="#">TV Shows</a>
+        <a href="#">Movies</a>
+        <a href="#">New & Popular</a>
+        <a href="#">My List</a>
+      </nav>
+    </div>
+
+    <div class="controls">
+      <a class="btn-signin" href="#">Sign In</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" role="banner" aria-label="Hero">
+      <div class="hero-content">
+        <div class="eyebrow">ID Networkers</div>
+        <h1>Bangun keterampilan, bangun relasi, dorong karier Anda bersama komunitas</h1>
+        <p class="lead">Komunitas developer, network engineer, dan tech enthusiast yang berbagi pengetahuan melalui workshop, meetups, mentorship, dan proyek kolaboratif.</p>
+        <div class="cta-row">
+          <a class="cta-primary" href="#">Gabung Sekarang</a>
+          <a class="cta-secondary" href="#">Lihat Kegiatan</a>
+        </div>
+
+        <div class="features" aria-label="Highlights">
+          <div class="feature">
+            <h3>Meetups & Workshops</h3>
+            <p>Acara berkala dengan pembicara praktisi dan sesi hands‑on untuk meningkatkan kemampuan.</p>
+          </div>
+          <div class="feature">
+            <h3>Mentorship</h3>
+            <p>Program bimbingan untuk membantu pengembangan karier dan proyek nyata.</p>
+          </div>
+          <div class="feature">
+            <h3>Open Source</h3>
+            <p>Kontribusi ke proyek komunitas untuk pengalaman praktis dan portofolio.</p>
+          </div>
+          <div class="feature">
+            <h3>Job & Collaboration Board</h3>
+            <p>Peluang kerja, kolaborasi proyek, dan rekomendasi dari anggota komunitas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 ID Networkers — Build, Connect, Grow. All rights reserved.</div>
+    <div style="margin-top:6px;color:var(--muted)">Kontak: hello@idnetworkers.id</div>
+  </footer>
 </body>
 </html>
