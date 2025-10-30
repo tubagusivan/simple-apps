@@ -1,6 +1,10 @@
 pipeline {
     agent { label 'dev' }
 
+    triggers {
+        pollSCM('H/10 * * * * *')
+    }
+
     stages {
         stage('Pull SCM') {
             steps {
